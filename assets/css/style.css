@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+/*Read More Style*/
+
+.fswp-elt--read-more{
+    cursor: pointer;
+}
+
+.fswp-elt--read-more-image-wrapper img{
+    width:auto !important;
+}
+
+.fswp-elt--read-more-content{
+    overflow:hidden;
+}
+
+.fswp-elt--read-more-content p:last-of-type{
+    margin-bottom: 0;
+}
