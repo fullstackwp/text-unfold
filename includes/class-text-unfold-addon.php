@@ -3,7 +3,11 @@
  * Text unfold 
  * @fullstackwp
  */
-final class text_unfold_addon
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+final class FSWP_text_unfold_addon
 {
 
     protected $registered_elements;
@@ -20,7 +24,7 @@ final class text_unfold_addon
             if (!$is_elementor_active) {
             ?>
                 <div class="notice notice-error is-dismissible">
-                    <p><?php _e('<b>Elementor</b> is not installed', FSWP_ELT_TEXT_UNFOLD_TEXT_DOMAIN); ?></p>
+                    <p><?php esc_html_e('<b>Elementor</b> is not installed', 'text-unfold'); ?></p>
                 </div>
             <?php
             }
@@ -54,7 +58,7 @@ final class text_unfold_addon
         $elements_manager->add_category(
             'fswp-widget',
             [
-                'title' => esc_html__('FSWP Widget', FSWP_ELT_TEXT_DOMAIN),
+                'title' => esc_html__('FSWP Widget', 'text-unfold'),
             ]
         );
     }
@@ -66,4 +70,4 @@ final class text_unfold_addon
     }
 }
 
-new text_unfold_addon();
+new FSWP_text_unfold_addon();
