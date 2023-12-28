@@ -682,7 +682,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
         ?>
         <div class="<?php echo esc_attr( FSWP_ELT_CLASS . 'read-more-title-wrapper'); ?>">
             <?php
-            echo '<' . $settings['read_more_title_tag'] . ' class="' . esc_attr(FSWP_ELT_CLASS . 'read-more-title') . '">' . esc_html($settings['title']). '</' . $settings['read_more_title_tag'] . '>' ;
+            echo '<' . fswp_validate_html_tag( $settings['read_more_title_tag'] ). ' class="' . esc_attr(FSWP_ELT_CLASS . 'read-more-title') . '">' . esc_html($settings['title']). '</' .fswp_validate_html_tag($settings['read_more_title_tag']). '>' ;
             ?>
 
         </div><!--read-more-title-wrapper-->
@@ -698,7 +698,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
             ?>
                     <div class="<?php echo esc_attr( FSWP_ELT_CLASS . 'read-more-content'); ?>">
                         <?php 
-                        echo $settings['full_content']; 
+                        echo wp_kses_post( $settings['full_content']); 
                         ?>
                     </div>
                     <?php
@@ -706,7 +706,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
                         $height = $settings['height']['size'] ? $settings['height']['size'] : 100;
                     ?>      
                         <a class="<?php echo esc_attr(FSWP_ELT_CLASS . 'read-more more'); ?>" data-height="<?php echo esc_attr($height); ?>" data-more="<?php echo esc_attr( $settings['read_more_text'] ); ?>" data-less="<?php echo esc_attr( $settings['read_less_text']); ?>">
-                            <?php echo $settings['read_more_text']; ?>
+                            <?php echo esc_html( $settings['read_more_text']); ?>
                         </a>
                     <?php
                     endif;

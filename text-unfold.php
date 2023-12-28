@@ -28,3 +28,4 @@ define('FSWP_ELT_TEXT_UNFOLD_PLUGIN_URL', trailingslashit(plugins_url('/',  __FI
 define('FSWP_ELT_CLASS', 'fswp-elt--');
 
 require_once(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . '/includes/class-text-unfold-addon.php');
+require_once(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . '/includes/helper-function.php');
