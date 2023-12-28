@@ -41,7 +41,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
 
     public function get_keywords()
     {
-        return ['readmore' , 'fswp'];
+        return ['readmore' , 'text unfold' , 'fswp'];
     }
 
     public function get_style_depends()
@@ -692,7 +692,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
     private function render_read_more_content($settings)
     {
         ?>
-        <div class="<?php echo FSWP_ELT_CLASS . 'read-more-content-wrapper'; ?>">
+        <div class="<?php echo esc_attr(FSWP_ELT_CLASS . 'read-more-content-wrapper'); ?>">
             <?php
             if ($settings['full_content']) :
             ?>

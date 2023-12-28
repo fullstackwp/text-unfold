@@ -35,13 +35,13 @@ final class FSWP_text_unfold_addon
     public function init()
     {
         if ($this->is_compatible()) {
-            add_action('elementor/widgets/register', array($this, 'register_new_widget'));
-            add_action('elementor/elements/categories_registered', array($this, 'register_widget_category'));
-            add_action('elementor/frontend/after_enqueue_scripts', array($this, 'enqueue_widget_styles_scripts'));
+            add_action('elementor/widgets/register', array($this, 'fswp_register_new_widget'));
+            add_action('elementor/elements/categories_registered', array($this, 'fswp_register_widget_category'));
+            add_action('elementor/frontend/after_enqueue_scripts', array($this, 'fswp_enqueue_widget_styles_scripts'));
         }
     }
 
-    function register_new_widget($widgets_manager)
+    function fswp_register_new_widget($widgets_manager)
     {
         $directories = scandir(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/');
         foreach ($directories as $directory) {
@@ -53,7 +53,7 @@ final class FSWP_text_unfold_addon
         }
     }
 
-    function register_widget_category($elements_manager)
+    function fswp_register_widget_category($elements_manager)
     {
         $elements_manager->add_category(
             'fswp-widget',
@@ -63,7 +63,7 @@ final class FSWP_text_unfold_addon
         );
     }
 
-    function enqueue_widget_styles_scripts()
+    function fswp_enqueue_widget_styles_scripts()
     {
         wp_enqueue_style('fswp-elt-text-unfold-style', FSWP_ELT_TEXT_UNFOLD_PLUGIN_URL . 'assets/css/style.css', array(), FSWP_ELT_TEXT_UNFOLD_VERSION, 'all');
         wp_enqueue_script('fswp-elt-text-unfold-script', FSWP_ELT_TEXT_UNFOLD_PLUGIN_URL . 'assets/js/script.js', array('jquery'), FSWP_ELT_TEXT_UNFOLD_VERSION, true);

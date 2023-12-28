@@ -6,7 +6,7 @@ Requires PHP: 7.0 or above
 Requires at least: 6.0
 Tested up to: 6.3.1
 Stable tag: 1.0.0
-Elementor tested up to: 3.18.2
+Elementor tested up to: 3.18.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
