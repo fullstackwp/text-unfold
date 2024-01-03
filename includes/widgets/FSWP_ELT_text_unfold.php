@@ -14,6 +14,7 @@ use \Elementor\Widget_Base;
 
 class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
 {
+
     public function get_name()
     {
         return 'fswp-text-unfold';
@@ -41,7 +42,7 @@ class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
 
     public function get_keywords()
     {
-        return ['readmore', 'text unfold', 'fswp'];
+        return [ 'text unfold', 'read more', 'read less', 'text expand', 'text collapse' ];
     }
 
     public function get_style_depends()
@@ -56,7 +57,7 @@ class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
 
     protected function register_controls()
     {
-        $this->register_read_more_widget_control();
+        $this->register_widget_control();
         $this->register_image_control();
         $this->register_title_control();
         $this->register_content_control();
@@ -66,7 +67,7 @@ class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings();
-?>
+    ?>
         <div class="<?php echo esc_attr(FSWP_ELT_CLASS . 'read-more-main-wrapper'); ?>">
             <?php
             if ($settings['include_image'] == 'yes' && $settings['read_more_image']['url']) :
@@ -81,7 +82,7 @@ class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
     <?php
     }
 
-    private function register_read_more_widget_control()
+    private function register_widget_control()
     {
         /* Read More Section in Content Tab Starts */
         $this->start_controls_section(

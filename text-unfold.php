@@ -11,7 +11,7 @@
  * Lisence URI:            https://opensource.org/licenses/GPL-3.0
  * Requires at least:      6.0
  * Requires PHP:           7.0
- * Tested up to:           6.3.1
+ * Tested up to:           6.4.2
  * Elementor tested up to: 3.18.3
  */
 

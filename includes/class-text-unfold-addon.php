@@ -26,6 +26,15 @@ final class FSWP_ELT_text_unfold_addon
         add_action('init', array($this, 'init'));
     }
 
+    public function init()
+    {
+        if ($this->is_compatible()) {
+            add_action('elementor/widgets/register', [$this, 'fswp_register_new_widget']);
+            add_action('elementor/elements/categories_registered', [$this, 'fswp_register_widget_category']);
+            add_action('elementor/frontend/after_enqueue_scripts', [$this, 'fswp_enqueue_widget_styles_scripts']);
+        }
+    }
+
     public function is_compatible()
     {
         if (!did_action('elementor/loaded')) {
@@ -66,26 +75,26 @@ final class FSWP_ELT_text_unfold_addon
         return true;
     }
 
-    public function init()
-    {
-        if ($this->is_compatible()) {
-            add_action('elementor/widgets/register', [$this, 'fswp_register_new_widget']);
-            add_action('elementor/elements/categories_registered', [$this, 'fswp_register_widget_category']);
-            add_action('elementor/frontend/after_enqueue_scripts', [$this, 'fswp_enqueue_widget_styles_scripts']);
-        }
-    }
-
     function fswp_register_new_widget($widgets_manager)
     {
-        $directories = scandir(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/');
-        foreach ($directories as $directory) {
-            $widget_files = (FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/' . $directory);
-            if (is_file($widget_files) && pathinfo($widget_files, PATHINFO_EXTENSION) === 'php') {
-                require_once $widget_files;
-                $widget = pathinfo($widget_files, PATHINFO_FILENAME);
-                $widgets_manager->register_widget_type(new $widget);
+        $widgetDirectory = FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/';
+        // Get all PHP files in the specified directory
+        $widgetFiles = glob($widgetDirectory . '*.php');
+        foreach ($widgetFiles as $widgetFile) {
+            $widgetClassName = basename($widgetFile, '.php');
+            // Check if the file is a valid PHP class file
+            require_once $widgetFile;
+            // Check if the file is a valid PHP class file
+            if (is_readable($widgetFile) && class_exists($widgetClassName)) {
+                // Instantiate the widget class and register it with Elementor
+                $widgetInstance = new $widgetClassName();
+                
+                if ($widgetInstance instanceof \Elementor\Widget_Base) {
+                    $widgets_manager->register_widget_type($widgetInstance);
+                }
             }
         }
+
     }
 
     function fswp_register_widget_category($elements_manager)

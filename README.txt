@@ -1,10 +1,10 @@
 ==== Text Unfold For Elementor ====
 Author: fullstackwp
 Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
-Tags: elementor, elementor addons, unfold, text unfold, read more, read less
+Tags: elementor, elementor addons, text expand, text collapse, unfold, text unfold, read more, read less
 Requires PHP: 7.0 or above
 Requires at least: 6.0
-Tested up to: 6.3.1
+Tested up to: 6.4.2
 Stable tag: 1.0.0
 Elementor tested up to: 3.18.3
 License: GPLv2 or later
