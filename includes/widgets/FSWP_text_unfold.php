@@ -682,7 +682,7 @@ class FSWP_text_unfold extends \Elementor\Widget_Base
         ?>
         <div class="<?php echo esc_attr( FSWP_ELT_CLASS . 'read-more-title-wrapper'); ?>">
             <?php
-            echo '<' . fswp_validate_html_tag( $settings['read_more_title_tag'] ). ' class="' . esc_attr(FSWP_ELT_CLASS . 'read-more-title') . '">' . esc_html($settings['title']). '</' .fswp_validate_html_tag($settings['read_more_title_tag']). '>' ;
+            echo '<' . fswp_validate_heading_tag( $settings['read_more_title_tag'] ). ' class="' . esc_attr(FSWP_ELT_CLASS . 'read-more-title') . '">' . esc_html($settings['title']). '</' .fswp_validate_heading_tag($settings['read_more_title_tag']). '>' ;
             ?>
 
         </div><!--read-more-title-wrapper-->

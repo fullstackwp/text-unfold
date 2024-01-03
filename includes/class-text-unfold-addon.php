@@ -9,10 +9,10 @@ if (!defined('ABSPATH')) {
 
 final class FSWP_text_unfold_addon
 {
-
+    
     protected $registered_elements;
 
-    function __construct()
+    public function __construct()
     {
         add_action('init', array($this, 'init'));
     }
@@ -45,7 +45,7 @@ final class FSWP_text_unfold_addon
     {
         $directories = scandir(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/');
         foreach ($directories as $directory) {
-            $widget_files = FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/' . $directory . '/' . $directory . '.php';
+            $widget_files = FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/' . $directory . '.php';
             if (file_exists($widget_files)) {
                 require_once $widget_files;
                 $widgets_manager->register_widget_type(new $directory);

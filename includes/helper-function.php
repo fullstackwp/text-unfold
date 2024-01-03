@@ -1,5 +1,5 @@
 <?php
-function fswp_validate_html_tag( $tag )
+function fswp_validate_heading_tag( $tag )
 {
     $allowed_html_tags = [
         'h1',
