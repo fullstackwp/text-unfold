@@ -11,14 +11,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class FSWP_text_unfold_addon
+final class FSWP_ELT_text_unfold_addon
 {
 
     protected $registered_elements;
 
     const Version = '1.0';
 
-    const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+    const MINIMUM_ELEMENTOR_VERSION = '1.0.0';
 
     const MINIMUM_PHP_VERSION = '6.0';
 
@@ -31,25 +31,48 @@ final class FSWP_text_unfold_addon
     {
         if (!did_action('elementor/loaded')) {
             add_action('admin_notices', function () {
-?>
+            ?>
                 <div class="notice notice-error is-dismissible">
-                    <p><?php _e('<b>Elementor</b> is not installed', 'text-unfold'); ?></p>
+                <p><?php echo sprintf( esc_html("%s is not installed.", "text-unfold"), '<strong>'.esc_html( "Elementor" , "text-unfold" ).'</strong>'); ?></p>
                 </div>
-<?php
-                return false;
+            <?php
             });
+            return false;
         }
-        return true;
+        
+        if( version_compare( ELEMENTOR_VERSION , self::MINIMUM_ELEMENTOR_VERSION , '<')){
+            add_action('admin_notices', function () {
+            ?>
+                <div class="notice notice-error is-dismissible">
+                    <p><?php echo sprintf( esc_html("Elementor version %s or greater is required.", "text-unfold"), self::MINIMUM_ELEMENTOR_VERSION); ?></p>
 
-        // if( !version_compare( ELEMENTOR_VERSION))
+                </div>
+            <?php
+            });
+            return false;
+        }
+
+        if( version_compare( PHP_VERSION , self::MINIMUM_PHP_VERSION , '<')){
+            add_action('admin_notices', function () {
+            ?>
+                <div class="notice notice-error is-dismissible">
+                    <p><?php echo sprintf( esc_html("PHP version %s or greater is required.", "text-unfold"), self::MINIMUM_PHP_VERSION); ?></p>
+
+                </div>
+            <?php
+            });
+            return false;
+        }
+
+        return true;
     }
 
     public function init()
     {
         if ($this->is_compatible()) {
-            add_action('elementor/widgets/register', array($this, 'fswp_register_new_widget'));
-            add_action('elementor/elements/categories_registered', array($this, 'fswp_register_widget_category'));
-            add_action('elementor/frontend/after_enqueue_scripts', array($this, 'fswp_enqueue_widget_styles_scripts'));
+            add_action('elementor/widgets/register', [$this, 'fswp_register_new_widget']);
+            add_action('elementor/elements/categories_registered', [$this, 'fswp_register_widget_category']);
+            add_action('elementor/frontend/after_enqueue_scripts', [$this, 'fswp_enqueue_widget_styles_scripts']);
         }
     }
 
@@ -83,4 +106,4 @@ final class FSWP_text_unfold_addon
     }
 }
 
-new FSWP_text_unfold_addon();
+new FSWP_ELT_text_unfold_addon();

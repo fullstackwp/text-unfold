@@ -13,7 +13,7 @@ use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 
-class FSWP_text_unfold extends \Elementor\Widget_Base
+class FSWP_ELT_text_unfold extends \Elementor\Widget_Base
 {
     public function get_name()
     {
