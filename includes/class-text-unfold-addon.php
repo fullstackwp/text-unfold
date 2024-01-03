@@ -1,54 +1,61 @@
 <?php
+
 /**
  * Text unfold 
  * @fullstackwp
  */
+
+use Elementor\Core\Utils\Version;
+
 if (!defined('ABSPATH')) {
     exit;
 }
 
 final class FSWP_text_unfold_addon
 {
-    
+
     protected $registered_elements;
+
+    const Version = '1.0';
+
+    const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+
+    const MINIMUM_PHP_VERSION = '6.0';
 
     public function __construct()
     {
         add_action('init', array($this, 'init'));
     }
 
-    public function is_compatible()
-    {
-        $is_elementor_active = class_exists( 'Elementor\Plugin' );
-        add_action('admin_notices', function () use ($is_elementor_active) {
-            if (!$is_elementor_active) {
-            ?>
-                <div class="notice notice-error is-dismissible">
-                    <p><?php esc_html_e('<b>Elementor</b> is not installed', 'text-unfold'); ?></p>
-                </div>
-            <?php
-            }
-        });
-        return $is_elementor_active;
-    }
+    // public function is_compatible()
+    // {
+    //    if( !did_action('elementor/loaded')){
+    //     add_action('admin_notices' , function(){
+
+    //     })
+    //    }
+    // }
 
     public function init()
     {
-        if ($this->is_compatible()) {
-            add_action('elementor/widgets/register', array($this, 'fswp_register_new_widget'));
-            add_action('elementor/elements/categories_registered', array($this, 'fswp_register_widget_category'));
-            add_action('elementor/frontend/after_enqueue_scripts', array($this, 'fswp_enqueue_widget_styles_scripts'));
-        }
+        // if ($this->is_compatible()) {
+        add_action('elementor/widgets/register', array($this, 'fswp_register_new_widget'));
+        add_action('elementor/elements/categories_registered', array($this, 'fswp_register_widget_category'));
+        add_action('elementor/frontend/after_enqueue_scripts', array($this, 'fswp_enqueue_widget_styles_scripts'));
+        // }
     }
 
     function fswp_register_new_widget($widgets_manager)
     {
         $directories = scandir(FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/');
         foreach ($directories as $directory) {
-            $widget_files = FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/' . $directory . '.php';
-            if (file_exists($widget_files)) {
-                require_once $widget_files;
-                $widgets_manager->register_widget_type(new $directory);
+            if ($directory !== '.' && $directory !== '..') {
+                $widget_files = (FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH . 'includes/widgets/' . $directory);
+                if (file_exists($widget_files)) {
+                    require_once $widget_files;
+                    $widget = basename($widget_files, '.php');
+                    $widgets_manager->register_widget_type(new $widget);
+                }
             }
         }
     }
