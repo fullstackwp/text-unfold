@@ -18,7 +18,7 @@ final class FSWP_ELT_text_unfold_addon
 
     const Version = '1.0';
 
-    const MINIMUM_ELEMENTOR_VERSION = '1.0.0';
+    const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 
     const MINIMUM_PHP_VERSION = '6.0';
 
