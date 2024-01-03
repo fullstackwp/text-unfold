@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Widget Text unfold 
  * @fullstackwp

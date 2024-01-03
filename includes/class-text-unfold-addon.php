@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Text unfold 
  * @fullstackwp

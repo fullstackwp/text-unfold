@@ -11,10 +11,3 @@ function fswp_validate_heading_tag( $tag )
     ];
     return ( in_array( strtolower( $tag ), $allowed_html_tags ) ? $tag : 'h3' );
 }
-?>
-
-
-
-
-
-
