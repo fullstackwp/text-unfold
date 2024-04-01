@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget Text unfold Helper Functions
+ * Widget Text Unfold For Elementor Helper Functions
  */
 
 /** @param $tag  string                           

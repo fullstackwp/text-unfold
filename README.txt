@@ -4,9 +4,9 @@ Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
 Tags: elementor, elementor addons, text expand, text collapse, unfold, text unfold, read more, read less
 Requires PHP: 7.0 or above
 Requires at least: 6.0
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Stable tag: 1.0.0
-Elementor tested up to: 3.18.3
+Elementor tested up to: 3.20.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
