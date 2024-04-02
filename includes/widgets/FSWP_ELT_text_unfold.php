@@ -914,7 +914,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'label'     => esc_html__('Color', 'text-unfold'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .fswp-elt--read-more-icon:hover' => 'color:{{VALUE}}',
+                    '{{WRAPPER}} .fswp-elt--read-more:hover .fswp-elt--read-more-icon' => 'color:{{VALUE}}',
 
                 ],
             ],

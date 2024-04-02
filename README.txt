@@ -4,9 +4,9 @@ Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
 Tags: elementor, elementor addons, text expand, text collapse, unfold, text unfold, read more, read less
 Requires PHP: 7.0 or above
 Requires at least: 6.0
-Tested up to: 6.4.3
-Stable tag: 1.0.0
-Elementor tested up to: 3.20.1
+Tested up to: 6.5
+Stable tag: 1.1.0
+Elementor tested up to: 3.20.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,3 +36,7 @@ Step 2: After installation, click the "activate" button to activate the plugin.
 == Changelog ==
 = 1.0.0 =
 * Plugin released. 
+
+= 1.1.0 =
+* New: Added feature to include icon within ‘Read more’ and ‘Read Less’ text.
+* Fix: Fixed image size issue, removed ‘Image Resolution’ field and added fields for height and width of the image.
