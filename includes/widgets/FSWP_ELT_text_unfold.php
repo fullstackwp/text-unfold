@@ -667,7 +667,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
             [
                 'name'     => 'read_more_typography',
                 'label'    => esc_html__('Read More Typography', 'text-unfold'),
-                'selector' => '{{WRAPPER}} .fswp-elt--read-more',
+                'selector' => '{{WRAPPER}} .fswp-elt--read-more .fswp-elt--read-more-text',
             ],
 
         );
@@ -876,6 +876,18 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 ]
             ]
         );
+
+        $this->add_responsive_control(
+            'icon_position',
+            [
+                'label'     => esc_html__('Icon Position', 'text-unfold'),
+                'type'      => \Elementor\Controls_Manager::SLIDER,
+                'selectors' => [
+                    '{{WRAPPER}} .fswp-elt--read-more-icon i'   => 'margin-top:{{SIZE}}px',
+                ],
+            ]
+        );
+
 
 
         $this->start_controls_tabs('icon_color_tabs');

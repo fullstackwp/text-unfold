@@ -16,8 +16,9 @@
   margin-bottom: 0;
 }
 
-.fswp-elt--read-more {
-  display: inline-flex;
+.fswp-elt--read-more-main-wrapper .fswp-elt--read-more {
+  display: flex;
+  align-items: flex-start;
 }
 
 .fswp-elt--read-more.hide-icon .fswp-elt--read-more-icon,
