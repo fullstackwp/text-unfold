@@ -884,6 +884,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'selectors' => [
                     '{{WRAPPER}} .fswp-elt--read-more-icon i'   => 'margin-top:{{SIZE}}px',
+                    '{{WRAPPER}} .fswp-elt--read-more-icon svg'   => 'margin-top:{{SIZE}}px',
                 ],
             ]
         );
