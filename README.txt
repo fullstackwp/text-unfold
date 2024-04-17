@@ -10,7 +10,7 @@ Elementor tested up to: 3.21.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple plugin that makes it possible for text to unfold.
+Unfold Text is a straightforward yet powerful add-on for Elementor that allows you to expand and collapse text with ease.
 
 == Description ==
 
