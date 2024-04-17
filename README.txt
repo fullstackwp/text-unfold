@@ -44,3 +44,6 @@ Step 2: After installation, click the "activate" button to activate the plugin.
 = 1.1.0 =
 * New: Added feature to include icon within ‘Read more’ and ‘Read Less’ text.
 * Fix: Fixed image size issue, removed ‘Image Resolution’ field and added fields for height and width of the image.
+
+= 1.1.1 =
+* Fix: Compatibility with latest Elementor 3.21 version
