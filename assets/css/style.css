@@ -17,7 +17,7 @@
 }
 
 .fswp-elt--read-more-main-wrapper .fswp-elt--read-more {
-  display: flex;
+  display: inline-block;
   align-items: flex-start;
 }
 

@@ -4,9 +4,9 @@ Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
 Tags: elementor, elementor addons, text expand, text unfold, read more
 Requires PHP: 7.0
 Requires at least: 6.0
-Tested up to: 6.5.2
+Tested up to: 6.6
 Stable tag: 1.1.1
-Elementor tested up to: 3.21.0
+Elementor tested up to: 3.23.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,3 +47,7 @@ Step 2: After installation, click the "activate" button to activate the plugin.
 
 = 1.1.1 =
 * Fix: Compatibility with latest Elementor 3.21 version
+
+= 1.1.2 =
+* Fix: Compatibility with latest Elementor 3.23 version
+* Fix: Changed display flex to inline-block for the "Read More" option
