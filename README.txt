@@ -4,9 +4,9 @@ Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
 Tags: elementor, elementor addons, text expand, text unfold, read more
 Requires PHP: 7.0
 Requires at least: 6.0
-Tested up to: 6.6
-Stable tag: 1.1.1
-Elementor tested up to: 3.23.1
+Tested up to: 6.7.1
+Stable tag: 1.1.3
+Elementor tested up to: 3.25.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,7 @@ A simple plugin that makes it possible for text to unfold.
 * Customizable 'Read More' and 'Read Less' text with option to include icons
 * Customizable icon color and size.
 * Modify the dimensions of the image.
+* Option of dynamics tags on title and content
 
 == Installation ==
 
@@ -51,3 +52,7 @@ Step 2: After installation, click the "activate" button to activate the plugin.
 = 1.1.2 =
 * Fix: Compatibility with latest Elementor 3.23 version
 * Fix: Changed display flex to inline-block for the "Read More" option
+
+= 1.1.3 =
+* New: Enabled the option of default dynamic tags on title and content
+* New: Increased the option of container height up to 1000px

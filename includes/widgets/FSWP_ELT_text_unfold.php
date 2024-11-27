@@ -116,7 +116,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
      */
     protected function render()
     {
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
 ?>
         <div class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-main-wrapper'); ?>">
             <?php
@@ -181,6 +181,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'label'       => esc_html__('Title', 'text-unfold'),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => esc_html__('Lorem Ipsum', 'text-unfold'),
+                'dynamic'     => ['active' => true],
             ]
         );
 
@@ -203,6 +204,11 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'type'      => Controls_Manager::SLIDER,
                 'selectors' => [
                     '{{WRAPPER}} .fswp-elt--read-more-content' => 'height:{{SIZE}}px'
+                ],
+                'range' => [
+                    'px' => [
+                        'max' => 1000,
+                    ],
                 ],
                 'default'   => [
                     'size' => 100
@@ -290,6 +296,7 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'label'   => esc_html__('Full Content', 'text-unfold'),
                 'type'    => Controls_Manager::WYSIWYG,
                 'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut suscipit justo. Etiam in neque et leo mattis venenatis. Integer tortor mauris, fringilla nec felis ac, volutpat maximus dui. Praesent vel leo nunc. Duis a est orci. Donec vitae odio id justo finibus bibendum nec in est. Duis sed fermentum enim. Donec blandit pulvinar bibendum. Sed pellentesque blandit turpis pulvinar consectetur. Curabitur mattis mollis justo, non venenatis neque mollis at. Phasellus vestibulum ornare turpis non efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi fringilla tellus et turpis sagittis aliquam. Duis lacinia bibendum nulla, in ultricies diam bibendum quis. Mauris interdum metus venenatis dui tristique auctor.',
+                'dynamic' => ['active' => true],
             ]
         );
 
