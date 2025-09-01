@@ -3,21 +3,21 @@
 /**
  * Plugin Name:            Text Unfold For Elementor
  * Description:            Simplest text unfold widget for elementor
- * Version:                1.1.3
- * Text Domain:            text-unfold
+ * Version:                1.1.5
+ * Text Domain:            text-unfold-for-elementor
  * Author:                 fullstackwp
  * Author URI:             https://www.fullstack-wp.com/
  * Lisence:                GPLv2 or later
  * Lisence URI:            https://opensource.org/licenses/GPL-3.0
  * Requires at least:      6.0
  * Requires PHP:           7.0
- * Tested up to:           6.7.1
- * Elementor tested up to: 3.25.10
+ * Tested up to:           6.8.1
+ * Elementor tested up to: 3.30.2
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('FSWP_ELT_TEXT_UNFOLD_VERSION', '1.1.3');
+define('FSWP_ELT_TEXT_UNFOLD_VERSION', '1.1.5');
 
 define('FSWP_ELT_TEXT_UNFOLD_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__)));
 

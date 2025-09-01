@@ -4,9 +4,9 @@ Contributors: fullstackwp, ckrahul, riteshshakya, krishnapariyar
 Tags: elementor, elementor addons, text expand, text unfold, read more
 Requires PHP: 7.0
 Requires at least: 6.0
-Tested up to: 6.7.1
-Stable tag: 1.1.3
-Elementor tested up to: 3.25.10
+Tested up to: 6.8.1
+Stable tag: 1.1.5
+Elementor tested up to: 3.30.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,3 +56,10 @@ Step 2: After installation, click the "activate" button to activate the plugin.
 = 1.1.3 =
 * New: Enabled the option of default dynamic tags on title and content
 * New: Increased the option of container height up to 1000px
+
+= 1.1.4 =
+* Fix: Fixed the issue "Trying to access array offset on value of type null" on existing container height settings
+
+= 1.1.5 =
+* New: Added translation support with a generated ".pot" file in the "/languages" folder.
+* Fix: Resolved CSS issue where the 'Icon Gap' setting was not properly applied to the read more/less button.

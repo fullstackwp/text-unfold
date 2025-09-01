@@ -205,13 +205,14 @@ class FSWP_ELT_text_unfold extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .fswp-elt--read-more-content' => 'height:{{SIZE}}px'
                 ],
+                'default' => [
+                    'size' => 100,
+                ],
                 'range' => [
                     'px' => [
+                        'min' => 0,
                         'max' => 1000,
                     ],
-                ],
-                'default'   => [
-                    'size' => 100
                 ],
                 'condition' => [
                     'include_read_more' => 'yes'
@@ -995,26 +996,29 @@ class FSWP_ELT_text_unfold extends Widget_Base
     ?>
         <div class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-content-wrapper'); ?>">
             <?php
-            if ($settings['full_content']) :
+            if (!empty($settings['full_content'])) :
             ?>
                 <div class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-content'); ?>">
                     <?php echo wp_kses_post($settings['full_content']); ?>
                 </div>
                 <?php
-                if ($settings['include_read_more'] == 'yes') :
-                    $height    = $settings['height']['size'] ? $settings['height']['size'] : 100;
-                    $show_icon = $settings['include_icon'] === 'yes' ? 'show-icon' : 'hide-icon';
+                if (!empty($settings['include_read_more']) && $settings['include_read_more'] === 'yes') :
+                    $height    = isset($settings['height']['size']) ? $settings['height']['size'] : 100;
+                    $show_icon = !empty($settings['include_icon']) && $settings['include_icon'] === 'yes' ? 'show-icon' : 'hide-icon';
                 ?>
-                    <a class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more more ') . esc_attr($show_icon); ?>" data-height="<?php echo esc_attr($height); ?>" data-more="<?php echo esc_attr($settings['read_more_text']); ?>" data-less="<?php echo esc_attr($settings['read_less_text']); ?>">
+                    <a class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more more ') . esc_attr($show_icon); ?>"
+                        data-height="<?php echo esc_attr($height); ?>"
+                        data-more="<?php echo esc_attr($settings['read_more_text'] ?? 'Read More'); ?>"
+                        data-less="<?php echo esc_attr($settings['read_less_text'] ?? 'Read Less'); ?>">
                         <span class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-text'); ?>">
-                            <?php echo esc_html($settings['read_more_text']); ?>
+                            <?php echo esc_html($settings['read_more_text'] ?? 'Read More'); ?>
                         </span>
-                        <?php if ($settings['include_icon'] && $settings['read_more_icon']['value']) : ?>
+                        <?php if (!empty($settings['include_icon']) && !empty($settings['read_more_icon']['value'])) : ?>
                             <span class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-icon ') . 'more'; ?>">
                                 <?php \Elementor\Icons_Manager::render_icon($settings['read_more_icon'], ['aria-hidden' => 'true']); ?>
                             </span>
                         <?php endif; ?>
-                        <?php if ($settings['include_icon'] && $settings['read_less_icon']['value']) : ?>
+                        <?php if (!empty($settings['include_icon']) && !empty($settings['read_less_icon']['value'])) : ?>
                             <span class="<?php echo esc_attr(FSWP_ELT_CLASS_PREFIX . 'read-more-icon ') . 'less'; ?>">
                                 <?php \Elementor\Icons_Manager::render_icon($settings['read_less_icon'], ['aria-hidden' => 'true']); ?>
                             </span>
